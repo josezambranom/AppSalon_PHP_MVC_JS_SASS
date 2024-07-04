@@ -44,10 +44,12 @@
         <button class="boton" id="anterior">&laquo; Anterior</button>
         <button class="boton" id="siguiente">Siguiente &raquo;</button>
     </div>
+    <input type="hidden" id="id" value="<?php echo $id; ?>">
 </div>
 
 <?php 
     $script = "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script src='build/js/app.js'></script>
     " 
 ?>
