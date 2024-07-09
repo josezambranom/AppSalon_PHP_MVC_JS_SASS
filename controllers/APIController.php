@@ -3,7 +3,9 @@
 namespace Controllers;
 
 use Model\Cita;
+use Model\CitaServicio;
 use Model\Servicio;
+use MVC\Router;
 
 class APIController {
     public static function index() {
@@ -25,13 +27,25 @@ class APIController {
             "servicios" => $idServicios
         ];
 
+        // Almacena los servicios con el ID de la cita
         foreach($idServicios as $idServicio) {
             $args = [
-                'citaid' => 
+                'citasid' => $id,
+                'serviciosid' => $idServicio
             ];
+            $citaServicio = new CitaServicio($args);
+            $citaServicio->guardar();
         }
+        echo json_encode(['resultado' => $resultado]);
+    }
 
-        echo json_encode($resultado);
+    public static function eliminar(Router $router) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $cita = Cita::find($id);
+            $cita->eliminar();
+            header('Location: '. $_SERVER['HTTP_REFERER']);
+        }
     }
 }
 
