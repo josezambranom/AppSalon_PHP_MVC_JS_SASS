@@ -4,11 +4,17 @@
 .formulario {
     margin-top: v.$separacion;
     width: 100%;
+
+    @include m.tablet {
+        .boton {
+            margin: v.$separacion auto;
+        }
+    }
 }
 
 .campo {
     display: flex;
-    margin-bottom: 2rem;
+    margin: 2rem 1rem;
     align-items: center;
 
     label {

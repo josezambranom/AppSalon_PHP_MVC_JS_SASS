@@ -2,7 +2,7 @@
 @use 'base/mixins' as m;
 
 .contenedor-app {
-    @include m.tablet {
+    @include m.desktop {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         min-height: 100vh;
@@ -15,25 +15,30 @@
         background-position: center center;
 
         @include m.tablet {
+            height: 40rem;
+        }
+
+        @include m.desktop {
             height: auto;
         }
     }
 
     .app {
-        width: 95%;
+        width: 90%;
         margin: 0 auto;
         padding: 3rem 0;
-        @include m.tablet {
-            overflow-y: scroll;
+        @include m.desktop {
+            overflow: auto;
         }
     }
 
     .barra {
         margin: v.$separacion 0;
+        text-align: center;
 
         @include m.tablet {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
         }
 
