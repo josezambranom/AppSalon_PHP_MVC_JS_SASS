@@ -13,16 +13,11 @@
 }
 
 .campo {
-    display: flex;
     margin: 2rem 1rem;
-    align-items: center;
-
-    label {
-        flex: 0 0 10rem;
-    }
 
     input {
-        flex: 1;
+        width: 100%;
+        margin-top: 1rem;
         border: none;
         padding: calc(v.$separacion / 4);
         border-radius: 1rem;
@@ -30,6 +25,22 @@
             background-color: lighten(v.$negro, 30%);
             color: v.$blanco;
             cursor: not-allowed;
+        }
+    }
+}
+
+@include m.tablet {
+    .campo {
+        display: flex;
+        align-items: center;
+
+        label {
+            flex: 0 0 10rem;
+        }
+
+        input {
+            flex: 1;
+            margin: 0;
         }
     }
 }
